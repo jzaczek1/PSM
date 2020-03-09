@@ -51,3 +51,8 @@ class Main:
         alfa = not alfa
         print("" + str((i + 1)) + ") => " + str(poczatkowaWartosc*zmiana) + ", roznica => " + str(abs(abs(poczatkowaWartosc)-abs(wynikPrawdilowy))))
 
+    print("Siema")
+    bool(False)
+# ten komentarz powininen być zaktualizowany
+#halko
+#siema
