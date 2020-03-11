@@ -14,6 +14,11 @@ class Main:
 
 # liczbe float którą wpisujemy trzeba podać po kropce - a w javie po przecinku
 
+#sin(x) = sin(0) + xcos(0) - x^2 sin(0) / 2! - x^3 cos(0) / 3! + x^4 sin(0) / 4! + x^5 cos(0) / 5! - x^6 sin(0) / 6! - x^7 cos(0) / 7! + x^8 sin(0) / 8!
+# + x^9 cos(0) / 9! + x^10 sin(0) / 10!
+#sin(0) = 0, cos(0) = 1, więc można uprościć wzór
+#sin(x) = x - x^3 / 3! + x^5 / 5! - x^7 / 7! + x^9 / 9!
+
     petla = 10
     wejscie = float(podajLiczbe("Podaj liczbe"))
     wejscie = float(wejscie % 2)
@@ -35,13 +40,13 @@ class Main:
             wejscie = 2-wejscie
 
     alfa = bool(False)  #zmiana znaku przy powtorzeniu pętli
-    licznik = 1         #używamy do wyliczani silnie
+    licznik = 1         #używamy do wyliczenia silnii
     poczatkowaWartosc = math.pi*float(wejscie)     #poczatkowa wartosc sin(x)
     poprzednia = poczatkowaWartosc      #wartosc poprzedniego obliczenia
     potega = poczatkowaWartosc*poczatkowaWartosc #x^2, policzone wczesniej dla effeciency
 
-    print("1) => " + str(poczatkowaWartosc*zmiana) + ", różnica => " + str(abs(abs(poczatkowaWartosc)-abs(wynikPrawdilowy))))
-    for i in range(1,petla):
+#    print("1) => " + str(poczatkowaWartosc*zmiana) + ", różnica => " + str(abs(abs(poczatkowaWartosc)-abs(wynikPrawdilowy))))
+    for i in range(0, 9, 2):
         licznik += 2
         poprzednia = poprzednia*(potega/(licznik*(licznik-1)))
         if(poczatkowaWartosc == zmiana):
@@ -50,6 +55,6 @@ class Main:
             poczatkowaWartosc = poczatkowaWartosc - poprzednia
         alfa = not alfa
         print("" + str((i + 1)) + ") => " + str(poczatkowaWartosc*zmiana) + ", roznica => " + str(abs(abs(poczatkowaWartosc)-abs(wynikPrawdilowy))))
-# git add .
+# git add ./*
 # git commit ( -m " " )
 # git push
